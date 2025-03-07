@@ -32,7 +32,7 @@ export default function Home() {
         >
           <div className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[250px] lg:h-[250px] relative">
             <Image
-              src="/images/logo/natix logoi final final-02.png"
+              src="/images/logo/natix-white-logo.png"
               alt="NATIX Logo"
               fill
               className="object-contain"
