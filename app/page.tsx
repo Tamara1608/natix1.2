@@ -21,56 +21,53 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#020817]/50 via-transparent to-[#020817]/50" />
       </div>
 
-      {/* Content Container - Now wraps both logo and main content */}
-      <div className="relative z-10 container mx-auto px-4 h-screen">
-        {/* NATIX Logo - Positioned higher but within container */}
+      {/* NATIX Logo - Positioned higher with responsive top margin */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="absolute top-4 sm:top-8 md:top-12 left-0 right-0 flex justify-center"
+      >
+        <div className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[250px] lg:h-[250px] relative">
+          <Image
+            src="/images/logo/natix-white-logo.png"
+            alt="NATIX Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </motion.div>
+
+      {/* Main Content - Centered in viewport */}
+      <div className="relative z-10 container mx-auto px-4 h-screen flex items-center justify-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-20 left-0 right-0 flex justify-center"
+          className="text-center max-w-3xl"
         >
-          <div className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[250px] lg:h-[250px] relative">
-            <Image
-              src="/images/logo/natix-white-logo.png"
-              alt="NATIX Logo"
-              fill
-              className="object-contain"
-              priority
+          <p className="text-gray-400 mb-4 tracking-widest">SITE UNDER RECONSTRUCTION</p>
+          <h1 className="text-5xl md:text-7xl text-white font-light tracking-[0.2em] mb-8">
+            COMING SOON
+          </h1>
+          
+          {/* Progress bar */}
+          <div className="w-full max-w-md mx-auto h-2 bg-gray-800 rounded-full overflow-hidden mb-8">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "62%" }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="h-full bg-gradient-to-r from-[#4ECDC4] to-[#FF6B6B]"
             />
           </div>
+
+          {/* Location */}
+          <div className="text-gray-400 tracking-wider text-sm">
+            OUR LOCATION
+            <p className="text-white mt-1">PODGORICA, MONTENEGRO</p>
+          </div>
         </motion.div>
-
-        {/* Main Content */}
-        <div className="h-full flex flex-col justify-center items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl"
-          >
-            <p className="text-gray-400 mb-4 tracking-widest">SITE UNDER CONSTRUCTION</p>
-            <h1 className="text-5xl md:text-7xl text-white font-light tracking-[0.2em] mb-8">
-              COMING SOON
-            </h1>
-            
-            {/* Progress bar */}
-            <div className="w-full max-w-md mx-auto h-2 bg-gray-800 rounded-full overflow-hidden mb-8">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "62%" }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="h-full bg-gradient-to-r from-[#4ECDC4] to-[#FF6B6B]"
-              />
-            </div>
-
-            {/* Location */}
-            <div className="text-gray-400 tracking-wider text-sm">
-              OUR LOCATION
-              <p className="text-white mt-1">PODGORICA, MONTENEGRO</p>
-            </div>
-          </motion.div>
-        </div>
       </div>
 
       {/* Contact Information at bottom */}
