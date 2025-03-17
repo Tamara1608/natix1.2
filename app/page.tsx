@@ -47,7 +47,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl"
         >
-          <p className="text-gray-400 mb-4 tracking-widest">SITE UNDER RECONSTRUCTION</p>
+          <p className="text-gray-400 mb-4 tracking-widest text-lg sm:text-xl">SITE UNDER CONSTRUCTION</p>
           <h1 className="text-5xl md:text-7xl text-white font-light tracking-[0.2em] mb-8">
             COMING SOON
           </h1>
@@ -63,9 +63,9 @@ export default function Home() {
           </div>
 
           {/* Location */}
-          <div className="text-gray-400 tracking-wider text-sm">
-            OUR LOCATION
-            <p className="text-white mt-1">PODGORICA, MONTENEGRO</p>
+          <div className="text-gray-400 tracking-wider text-base sm:text-lg text-center">
+            <span className="text-gray-400 tracking-wider text-base sm:text-lg">OUR LOCATION</span>
+            <p className="text-white mt-1 text-lg sm:text-xl">PODGORICA, MONTENEGRO</p>
           </div>
         </motion.div>
       </div>
@@ -77,15 +77,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12"
+            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-8"
           >
-            <div className="text-gray-400 tracking-wider text-sm text-center">
-              EMAIL
-              <p className="text-white mt-1">natixoffice@gmail.com</p>
+            <div className="flex flex-col items-center text-center">
+              <span className="text-gray-400 tracking-wider text-base sm:text-lg">EMAIL</span>
+              <p className="text-white mt-1 text-lg sm:text-xl">natixoffice@gmail.com</p>
             </div>
-            <div className="text-gray-400 tracking-wider text-sm text-center">
-              PHONE
-              <p className="text-white mt-1">+382 69 010 162</p>
+            <div className="flex flex-col items-center text-center">
+              <span className="text-gray-400 tracking-wider text-base sm:text-lg">PHONE</span>
+              <p className="text-white mt-1 text-lg sm:text-xl">+382 69 010 162</p>
             </div>
           </motion.div>
         </div>
