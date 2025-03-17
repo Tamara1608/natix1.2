@@ -72,12 +72,12 @@ export default function Home() {
 
       {/* Contact Information at bottom */}
       <div className="absolute bottom-8 left-0 right-0 z-20">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-8 -ml-12"
+            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-8"
           >
             <div className="flex flex-col items-center text-center">
               <span className="text-gray-400 tracking-wider text-base sm:text-lg">EMAIL</span>
