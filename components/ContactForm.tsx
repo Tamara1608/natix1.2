@@ -39,7 +39,7 @@ export default function ContactForm() {
         setSubmitStatus('error');
       }
     } catch (error) {
-      setSubmitStatus('error');
+    console.log(error)
     } finally {
       setIsSubmitting(false);
     }
