@@ -27,7 +27,8 @@ const Header = () => {
     { href: '/#home', label: 'Home' },
     { href: '/products', label: 'Products' },
     { href: '/services', label: 'Services' },
-    { href: '/#contact', label: 'Contact' },
+    { href: '/#contact', label: 'Contact Us' },
+    { href: '/about', label: (<>About <span className="text-mint">NATIX</span></>)},
   ];
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -41,14 +42,14 @@ const Header = () => {
         setTimeout(() => {
           const element = document.querySelector(href.substring(1));
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         }, 100);
       } else {
         // If we're already on the home page, just scroll
         const element = document.querySelector(href.substring(1));
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     } else {

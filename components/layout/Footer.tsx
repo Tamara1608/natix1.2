@@ -15,13 +15,13 @@ const Footer = () => {
               Professional security systems installation and consultation services for your peace of mind.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://facebook.com" className="text-gray-400 hover:text-mint transition-colors">
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-mint transition-colors">
                 <FacebookIcon size={20} />
               </Link>
-              <Link href="https://www.instagram.com/natix_doo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="text-gray-400 hover:text-mint transition-colors">
+              <Link href="https://www.instagram.com/natix_doo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-mint transition-colors">
                 <Instagram size={20} />
               </Link>
-              <Link href="https://linkedin.com" className="text-gray-400 hover:text-mint transition-colors">
+              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-mint transition-colors">
                 <Linkedin size={20} />
               </Link>
             </div>
@@ -43,7 +43,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/#contact" className="text-gray-400 hover:text-mint transition-colors">
-                  Contact
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-mint transition-colors">
+                  About <span className="text-mint">NATIX</span>
                 </Link>
               </li>
             </ul>
