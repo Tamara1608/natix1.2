@@ -7,12 +7,10 @@ import { Shield, Lock, Users, Clock, ArrowRight } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const element = document.querySelector(id);
+    element?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   return (
@@ -22,14 +20,15 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+            src="/images/background/option3.jpg"
             alt="Security System"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/80" />
         </div>
+
 
         {/* Hero Content */}
         <div className="container mx-auto px-4 z-10 text-center">
@@ -221,74 +220,77 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="overflow-x-auto hide-scrollbar">
-              <div className="flex gap-8 pb-4">
-                {[
-                  {
-                    title: 'Technical Security',
-                    description: 'Advanced security systems including intrusion protection, video surveillance, and access control.',
-                    image: '/images/products/technical-security.jpg',
-                    href: '/products/technical-security'
-                  },
-                  {
-                    title: 'Hotel Systems',
-                    description: 'Comprehensive hotel management and security solutions for hospitality industry.',
-                    image: '/images/products/hotel-system.jpg',
-                    href: '/products/hotel-systems'
-                  },
-                  {
-                    title: 'Structured Cabling networks & Communication',
-                    description: 'Professional communication infrastructure and networking solutions.',
-                    image: '/images/products/structured-cabling-system.jpg',
-                    href: '/products/structured-cabling'
-                  },
-                  {
-                    title: 'Smart Home',
-                    description: 'Smart automation solutions for lighting and heating systems.',
-                    image: '/images/products/home-security.jpeg',
-                    href: '/products/automation'
-                  }
-                ].map((category, index) => (
-                  <motion.div
-                    key={index}
-                    className="min-w-[600px] flex-shrink-0"
-                    whileHover={{ scale: 0.98 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Link href={category.href}>
-                      <div className="group relative h-[400px] bg-[#181818] rounded-lg overflow-hidden cursor-pointer">
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80 z-10" />
-                        <Image
-                          src={category.image}
-                          alt={category.title}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                          <h3 className="text-2xl font-bold text-white mb-3 transform transition-transform duration-500 group-hover:translate-x-2">
-                            {category.title}
-                          </h3>
-                          <p className="text-gray-300 mb-6 transform transition-transform duration-500 group-hover:translate-x-2">
-                            {category.description}
-                          </p>
-                          <div className="flex items-center text-mint transform transition-transform duration-500 group-hover:translate-x-2">
-                            <span className="mr-2">Learn More</span>
-                            <ArrowRight className="w-5 h-5" />
+          <div className="relative overflow-hidden">
+            <div className="flex">
+              <div className="flex animate-infinite-scroll">
+                {[...Array(2)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex">
+                    {[
+                      {
+                        title: 'Technical Security',
+                        description: 'Advanced security systems including intrusion protection, video surveillance, and access control.',
+                        image: '/images/products/technical-security.jpg',
+                        href: '/products/technical-security'
+                      },
+                      {
+                        title: 'Hotel Systems',
+                        description: 'Comprehensive hotel management and security solutions for hospitality industry.',
+                        image: '/images/products/hotel-system.jpg',
+                        href: '/products/hotel-systems'
+                      },
+                      {
+                        title: 'Structured Cabling networks & Communication',
+                        description: 'Professional communication infrastructure and networking solutions.',
+                        image: '/images/products/structured-cabling-system.jpg',
+                        href: '/products/structured-cabling'
+                      },
+                      {
+                        title: 'Smart Home',
+                        description: 'Smart automation solutions for lighting and heating systems.',
+                        image: '/images/products/home-security.jpeg',
+                        href: '/products/automation'
+                      }
+                    ].map((category, index) => (
+                      <motion.div
+                        key={`${setIndex}-${index}`}
+                        className="min-w-[320px] sm:min-w-[600px] px-4"
+                        whileHover={{ scale: 0.98 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Link href={category.href}>
+                          <div className="group relative h-[400px] bg-[#181818] rounded-lg overflow-hidden cursor-pointer">
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/90 z-10" />
+                            <Image
+                              src={category.image}
+                              alt={category.title}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+                              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 transform transition-transform duration-500 group-hover:translate-x-2">
+                                {category.title}
+                              </h3>
+                              <p className="text-base sm:text-lg text-gray-300 mb-6 line-clamp-2 transform transition-transform duration-500 group-hover:translate-x-2">
+                                {category.description}
+                              </p>
+                              <div className="flex items-center text-mint transform transition-transform duration-500 group-hover:translate-x-2">
+                                <span className="mr-2">Learn More</span>
+                                <ArrowRight className="w-5 h-5" />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-full bg-gradient-to-r from-black to-transparent z-10" />
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-24 h-full bg-gradient-to-l from-black to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-gray-400 mb-6">Scroll horizontally to explore more products</p>
             <Link
               href="/products"
               className="inline-flex items-center bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors"

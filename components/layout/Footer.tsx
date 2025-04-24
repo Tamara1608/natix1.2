@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, FacebookIcon, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,12 +16,9 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <Link href="https://facebook.com" className="text-gray-400 hover:text-mint transition-colors">
-                <Facebook size={20} />
+                <FacebookIcon size={20} />
               </Link>
-              <Link href="https://twitter.com" className="text-gray-400 hover:text-mint transition-colors">
-                <Twitter size={20} />
-              </Link>
-              <Link href="https://instagram.com" className="text-gray-400 hover:text-mint transition-colors">
+              <Link href="https://www.instagram.com/natix_doo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="text-gray-400 hover:text-mint transition-colors">
                 <Instagram size={20} />
               </Link>
               <Link href="https://linkedin.com" className="text-gray-400 hover:text-mint transition-colors">
@@ -85,15 +82,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center space-x-3 text-gray-400">
                 <Phone size={20} className="text-mint" />
-                <span>+1 (555) 123-4567</span>
+                <span>+382 69 010 162</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400">
                 <Mail size={20} className="text-mint" />
-                <span>contact@natix.com</span>
+                <span>natixoffice@gmail.com </span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400">
                 <MapPin size={20} className="text-mint" />
-                <span>123 Security Street, NY 10001</span>
+                <span>Podgorica, MONTENEGRO</span>
               </li>
             </ul>
           </div>
