@@ -212,7 +212,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-black -z-10 h-12 top-0"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">
               Our <span className="text-mint">Products</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
@@ -293,7 +293,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               href="/products"
-              className="inline-flex items-center bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors"
+              className="inline-flex items-center bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors text-sm sm:text-base"
             >
               View All Products
               <ArrowRight className="ml-2 h-5 w-5" />
