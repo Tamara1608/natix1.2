@@ -18,12 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://natix.com',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'NATIX - Professional Security Systems & Solutions',
-    description: 'Professional security systems installation and consultation services.',
-  },
+  }
 };
 
 export default function RootLayout({

@@ -16,7 +16,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -35,10 +35,8 @@ const Header = () => {
     e.preventDefault();
     
     if (href.startsWith('/#')) {
-      // If we're not on the home page, navigate to home first
       if (pathname !== '/') {
         router.push('/');
-        // Wait for navigation to complete before scrolling
         setTimeout(() => {
           const element = document.querySelector(href.substring(1));
           if (element) {
@@ -46,14 +44,12 @@ const Header = () => {
           }
         }, 100);
       } else {
-        // If we're already on the home page, just scroll
         const element = document.querySelector(href.substring(1));
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     } else {
-      // For non-hash routes, just navigate normally
       router.push(href);
     }
     
@@ -63,9 +59,9 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-md'
+          ? 'bg-black/50 backdrop-blur-[2px]'
           : 'bg-transparent'
       )}
     >
@@ -73,8 +69,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2" onClick={(e) => handleNavigation(e, '/#home')}>
             <span className={cn(
-              "text-2xl font-bold transition-colors",
-              isScrolled ? "text-black" : "text-mint"
+              "text-xl lg:text-2xl font-bold transition-colors duration-300",
+              isScrolled ? "text-mint" : "text-mint"
             )}>NATIX</span>
           </Link>
 
@@ -86,8 +82,8 @@ const Header = () => {
                   <NavigationMenu.Link
                     asChild
                     className={cn(
-                      'text-sm font-medium transition-colors hover:text-mint',
-                      isScrolled ? 'text-gray-700' : 'text-white'
+                      'text-xs lg:text-sm font-medium transition-colors duration-300 hover:text-mint',
+                      'text-white'
                     )}
                   >
                     <Link href={item.href} onClick={(e) => handleNavigation(e, item.href)}>
@@ -106,9 +102,9 @@ const Header = () => {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className={isScrolled ? 'text-gray-700' : 'text-white'} />
+              <X className="text-white" />
             ) : (
-              <Menu className={isScrolled ? 'text-gray-700' : 'text-white'} />
+              <Menu className="text-white" />
             )}
           </button>
         </div>
@@ -119,7 +115,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-20 left-0 right-0 bg-white shadow-lg"
+            className="lg:hidden absolute top-20 left-0 right-0 bg-black/50 backdrop-blur-[2px]"
           >
             <nav className="container mx-auto px-4 py-4">
               <ul className="space-y-4">
@@ -127,7 +123,7 @@ const Header = () => {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block text-gray-700 hover:text-mint transition-colors"
+                      className="block text-white text-sm hover:text-mint transition-colors duration-300"
                       onClick={(e) => handleNavigation(e, item.href)}
                     >
                       {item.label}

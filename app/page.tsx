@@ -36,7 +36,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4"
           >
             Secure Your World with <span className="text-mint">NATIX</span>
           </motion.h1>
@@ -44,7 +44,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto"
           >
             Professional security systems and solutions for homes and businesses.
             Experience peace of mind with our cutting-edge technology.
@@ -207,15 +207,15 @@ export default function Home() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
         id="products-preview"
-        className="py-20 bg-black relative z-10"
+        className="py-12 sm:py-16 md:py-20 bg-black relative z-10"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-black -z-10 h-12 top-0"></div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
               Our <span className="text-mint">Products</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
               Discover our comprehensive range of security and automation solutions
             </p>
           </div>
@@ -253,12 +253,12 @@ export default function Home() {
                     ].map((category, index) => (
                       <motion.div
                         key={`${setIndex}-${index}`}
-                        className="min-w-[320px] sm:min-w-[600px] px-4"
+                        className="min-w-[280px] sm:min-w-[400px] md:min-w-[600px] px-2 sm:px-3 md:px-4"
                         whileHover={{ scale: 0.98 }}
                         transition={{ duration: 0.3 }}
                       >
                         <Link href={category.href}>
-                          <div className="group relative h-[400px] bg-[#181818] rounded-lg overflow-hidden cursor-pointer">
+                          <div className="group relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#181818] rounded-lg overflow-hidden cursor-pointer">
                             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/90 z-10" />
                             <Image
                               src={category.image}
@@ -266,16 +266,16 @@ export default function Home() {
                               fill
                               className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 transform transition-transform duration-500 group-hover:translate-x-2">
+                            <div className="absolute inset-0 z-20 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
+                              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 transform transition-transform duration-500 group-hover:translate-x-2">
                                 {category.title}
                               </h3>
-                              <p className="text-base sm:text-lg text-gray-300 mb-6 line-clamp-2 transform transition-transform duration-500 group-hover:translate-x-2">
+                              <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-4 sm:mb-6 line-clamp-2 transform transition-transform duration-500 group-hover:translate-x-2">
                                 {category.description}
                               </p>
                               <div className="flex items-center text-mint transform transition-transform duration-500 group-hover:translate-x-2">
-                                <span className="mr-2">Learn More</span>
-                                <ArrowRight className="w-5 h-5" />
+                                <span className="text-sm sm:text-base mr-2">Learn More</span>
+                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                               </div>
                             </div>
                           </div>
@@ -286,8 +286,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-black to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-l from-black to-transparent z-10" />
           </div>
 
           <div className="text-center mt-8">

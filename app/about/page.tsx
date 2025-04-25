@@ -53,7 +53,7 @@ export default function About() {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Story</h2>
               <p className="text-gray-300 text-lg leading-relaxed">
-                NATIX was founded with a clear vision: to provide cutting-edge security solutions that bring peace of mind to our clients. With years of experience in the security industry, we&aposve established ourselves as a trusted partner for both residential and commercial security needs.
+                NATIX was founded with a clear vision: to provide cutting-edge security solutions that bring peace of mind to our clients. With years of experience in the security industry, we&apos;ve established ourselves as a trusted partner for both residential and commercial security needs.
               </p>
             </motion.div>
           </div>
