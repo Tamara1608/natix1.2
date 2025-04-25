@@ -39,7 +39,7 @@ export default function ContactForm() {
         setSubmitStatus('error');
       }
     } catch (error) {
-    console.log(error)
+      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -52,10 +52,10 @@ export default function ContactForm() {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       onSubmit={handleSubmit}
-      className="max-w-lg mx-auto mt-8 space-y-6"
+      className="max-w-lg mx-auto mt-4 sm:mt-8 space-y-4 sm:space-y-6"
     >
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           Name
         </label>
         <input
@@ -64,13 +64,13 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-4 py-2 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint text-white"
+          className="w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint text-white text-sm sm:text-base"
           placeholder="Your name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           Email
         </label>
         <input
@@ -79,13 +79,13 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-2 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint text-white"
+          className="w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint text-white text-sm sm:text-base"
           placeholder="your@email.com"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           Message
         </label>
         <textarea
@@ -93,8 +93,8 @@ export default function ContactForm() {
           required
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          rows={4}
-          className="w-full px-4 py-2 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint text-white resize-none"
+          rows={3}
+          className="w-full px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint text-white resize-none text-sm sm:text-base"
           placeholder="Your message..."
         />
       </div>
@@ -102,16 +102,16 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-mint text-black px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
 
       {submitStatus === 'success' && (
-        <p className="text-mint text-center">Message sent successfully!</p>
+        <p className="text-mint text-center text-sm">Message sent successfully!</p>
       )}
       {submitStatus === 'error' && (
-        <p className="text-red-400 text-center">Failed to send message. Please try again.</p>
+        <p className="text-red-400 text-center text-sm">Failed to send message. Please try again.</p>
       )}
     </motion.form>
   );

@@ -53,12 +53,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center w-full sm:w-auto px-8 sm:px-0"
+            className="flex gap-4 justify-center items-center"
           >
             <Link
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="bg-mint text-black px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-opacity-90 transition-colors inline-flex items-center justify-center text-sm sm:text-base w-full sm:w-auto max-w-[200px] mx-auto"
+              className="bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors inline-flex items-center justify-center text-sm sm:text-base"
             >
               Get Started
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
@@ -66,7 +66,7 @@ export default function Home() {
             <Link
               href="#products-preview"
               onClick={(e) => scrollToSection(e, '#products-preview')}
-              className="bg-white text-black px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-gray-100 transition-colors text-sm sm:text-base w-full sm:w-auto max-w-[200px] mx-auto"
+              className="bg-white text-black px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center text-sm sm:text-base"
             >
               View All Products
             </Link>
