@@ -53,20 +53,20 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 justify-center w-full sm:w-auto px-8 sm:px-0"
           >
             <Link
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors inline-flex items-center justify-center"
+              className="bg-mint text-black px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-opacity-90 transition-colors inline-flex items-center justify-center text-sm sm:text-base w-full sm:w-auto max-w-[200px] mx-auto"
             >
               Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
             <Link
               href="#products-preview"
               onClick={(e) => scrollToSection(e, '#products-preview')}
-              className="bg-white text-black px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="bg-white text-black px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-gray-100 transition-colors text-sm sm:text-base w-full sm:w-auto max-w-[200px] mx-auto"
             >
               View All Products
             </Link>
@@ -134,35 +134,35 @@ export default function Home() {
       </section>
 
       {/* Services Preview Section */}
-      <section id="services-preview" className="py-20 bg-gray-50">
+      <section id="services-preview" className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-2 sm:mb-4">
               Our <span className="text-mint">Services</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Explore our comprehensive range of security and automation solutions
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
+              className="bg-white rounded-lg shadow-md overflow-hidden"
             >
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-black mb-4">Security Solutions</h3>
-                <p className="text-gray-600 mb-6">
+              <div className="p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4">Security Solutions</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                   Comprehensive security systems for your home and business, including
                   surveillance, access control, and intrusion detection.
                 </p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center text-mint hover:text-mint/80 transition-colors"
+                  className="inline-flex items-center text-mint hover:text-mint/80 transition-colors text-sm sm:text-base"
                 >
-                  Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                  Learn More <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </div>
             </motion.div>
@@ -171,19 +171,19 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
+              className="bg-white rounded-lg shadow-md overflow-hidden"
             >
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-black mb-4">Automation Systems</h3>
-                <p className="text-gray-600 mb-6">
+              <div className="p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4">Automation Systems</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                   Smart automation solutions for lighting, heating, and energy management,
                   designed for efficiency and comfort.
                 </p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center text-mint hover:text-mint/80 transition-colors"
+                  className="inline-flex items-center text-mint hover:text-mint/80 transition-colors text-sm sm:text-base"
                 >
-                  Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                  Learn More <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </div>
             </motion.div>
@@ -191,10 +191,10 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/services"
-              className="inline-flex items-center bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors"
+              className="inline-flex items-center bg-mint text-black px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-opacity-90 transition-colors text-sm sm:text-base"
             >
               View All Services
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
           </div>
         </div>
