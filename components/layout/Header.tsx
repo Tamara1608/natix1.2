@@ -7,12 +7,15 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
+import { useLanguage } from '@/context/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +27,11 @@ const Header = () => {
   }, []);
 
   const navigationItems = [
-    { href: '/#home', label: 'Home' },
-    { href: '/products', label: 'Products' },
-    { href: '/services', label: 'Services' },
-    { href: '/#contact', label: 'Contact Us' },
-    { href: '/about', label: (<>About <span className="text-mint">NATIX</span></>)},
+    { href: '/#home', label: t('nav.home') },
+    { href: '/products', label: t('nav.products') },
+    { href: '/services', label: t('nav.services') },
+    { href: '/#contact', label: t('nav.contact') },
+    { href: '/about', label: (<>{t('nav.about')} <span className="text-mint">NATIX</span></>)},
   ];
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -61,7 +64,7 @@ const Header = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-black/50 backdrop-blur-[2px]'
+          ? 'bg-black/70 backdrop-blur-sm'
           : 'bg-transparent'
       )}
     >
@@ -75,7 +78,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <NavigationMenu.Root className="hidden lg:flex">
+          <NavigationMenu.Root className="hidden lg:flex items-center">
             <NavigationMenu.List className="flex items-center space-x-8">
               {navigationItems.map((item) => (
                 <NavigationMenu.Item key={item.href}>
@@ -93,20 +96,26 @@ const Header = () => {
                 </NavigationMenu.Item>
               ))}
             </NavigationMenu.List>
+            <div className="ml-8">
+              <LanguageSwitcher />
+            </div>
           </NavigationMenu.Root>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="text-white" />
-            ) : (
-              <Menu className="text-white" />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center space-x-4">
+            <LanguageSwitcher />
+            <button
+              className="p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="text-white" />
+              ) : (
+                <Menu className="text-white" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -115,7 +124,12 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-20 left-0 right-0 bg-black/50 backdrop-blur-[2px]"
+            className={cn(
+              "lg:hidden absolute top-20 left-0 right-0 transition-all duration-500",
+              isScrolled
+                ? 'bg-black/70 backdrop-blur-sm'
+                : 'bg-black/70 backdrop-blur-sm'
+            )}
           >
             <nav className="container mx-auto px-4 py-4">
               <ul className="space-y-4">

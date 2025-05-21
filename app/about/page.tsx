@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Shield, Users, Clock, Target } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen pt-20 bg-black">
       {/* Hero Section */}
@@ -27,7 +30,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold text-white mb-6"
           >
-            About <span className="text-mint">NATIX</span>
+            {t('nav.about')} <span className="text-mint">NATIX</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -35,7 +38,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto"
           >
-            Leading provider of professional security systems and smart solutions
+            {t('about.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -51,9 +54,9 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('about.story.title')}</h2>
               <p className="text-gray-300 text-lg leading-relaxed">
-                NATIX was founded with a clear vision - to provide cutting-edge security solutions that bring peace of mind to our clients. With years of experience in the security industry, we&apos;ve established ourselves as a trusted partner for both residential and commercial security needs.
+                {t('about.story.description')}
               </p>
             </motion.div>
           </div>
@@ -63,23 +66,23 @@ export default function About() {
             {[
               {
                 icon: Shield,
-                title: 'Excellence',
-                description: 'We strive for excellence in every installation and service we provide.',
+                title: t('about.values.excellence.title'),
+                description: t('about.values.excellence.description'),
               },
               {
                 icon: Users,
-                title: 'Customer Focus',
-                description: 'Our clients needs and satisfaction are at the heart of everything we do.',
+                title: t('about.values.customer.title'),
+                description: t('about.values.customer.description'),
               },
               {
                 icon: Clock,
-                title: 'Reliability',
-                description: '24/7 support and maintenance to ensure your security systems are always operational.',
+                title: t('about.values.reliability.title'),
+                description: t('about.values.reliability.description'),
               },
               {
                 icon: Target,
-                title: 'Innovation',
-                description: 'Continuously adopting the latest security technologies and solutions.',
+                title: t('about.values.innovation.title'),
+                description: t('about.values.innovation.description'),
               },
             ].map((value, index) => (
               <motion.div
@@ -110,9 +113,9 @@ export default function About() {
               viewport={{ once: true }}
               className="bg-[#181818] p-8 rounded-lg"
             >
-              <h3 className="text-2xl font-bold text-white mb-4 text-center">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">{t('about.mission.title')}</h3>
               <p className="text-gray-300 leading-relaxed text-justify">
-                To deliver innovative and reliable security solutions that protect what matters most to our clients, while providing exceptional service and technical expertise that exceeds expectations.
+                {t('about.mission.description')}
               </p>
             </motion.div>
 
@@ -123,9 +126,9 @@ export default function About() {
               viewport={{ once: true }}
               className="bg-[#181818] p-8 rounded-lg"
             >
-              <h3 className="text-2xl font-bold text-white mb-4 text-center">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">{t('about.vision.title')}</h3>
               <p className="text-gray-300 leading-relaxed text-justify">
-                To be the leading provider of integrated security solutions in Montenegro, recognized for our innovation, reliability, and commitment to customer satisfaction.
+                {t('about.vision.description')}
               </p>
             </motion.div>
           </div>

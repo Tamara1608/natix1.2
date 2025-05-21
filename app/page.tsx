@@ -5,8 +5,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Shield, Lock, Users, Clock, ArrowRight } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
     const element = document.querySelector(id);
@@ -29,7 +32,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
-
         {/* Hero Content */}
         <div className="container mx-auto px-4 z-10 text-center">
           <motion.h1
@@ -38,7 +40,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4"
           >
-            Secure Your World with <span className="text-mint">NATIX</span>
+            {t('hero.title')} <span className="text-mint">NATIX</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -46,8 +48,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 max-w-2xl mx-auto"
           >
-            Professional security systems and solutions for homes and businesses.
-            Experience peace of mind with our cutting-edge technology.
+            {t('hero.subtitle')}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +61,7 @@ export default function Home() {
               onClick={(e) => scrollToSection(e, '#contact')}
               className="bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors inline-flex items-center justify-center text-sm sm:text-base"
             >
-              Get Started
+              {t('common.getStarted')}
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
             <Link
@@ -68,7 +69,7 @@ export default function Home() {
               onClick={(e) => scrollToSection(e, '#products-preview')}
               className="bg-white text-black px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center text-sm sm:text-base"
             >
-              View All Products
+              {t('common.viewAll')} {t('nav.products')}
             </Link>
           </motion.div>
         </div>
@@ -79,11 +80,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-              Why Choose <span className="text-mint">NATIX</span>?
+              {t('features.title')} <span className="text-mint">NATIX</span>?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive security solutions with cutting-edge technology
-              and professional expertise.
+              {t('features.subtitle')}
             </p>
           </div>
 
@@ -91,27 +91,23 @@ export default function Home() {
             {[
               {
                 icon: Shield,
-                title: 'Advanced Security',
-                description:
-                  'State-of-the-art security systems with the latest technology',
+                title: t('features.cards.security.title'),
+                description: t('features.cards.security.description'),
               },
               {
                 icon: Users,
-                title: 'Expert Installation',
-                description:
-                  'Professional installation by certified security specialists',
+                title: t('features.cards.installation.title'),
+                description: t('features.cards.installation.description'),
               },
               {
                 icon: Clock,
-                title: '24/7 Monitoring',
-                description:
-                  'Round-the-clock monitoring and immediate response to alerts',
+                title: t('features.cards.monitoring.title'),
+                description: t('features.cards.monitoring.description'),
               },
               {
                 icon: Lock,
-                title: 'Access Control',
-                description:
-                  'Smart access control systems for enhanced security',
+                title: t('features.cards.access.title'),
+                description: t('features.cards.access.description'),
               },
             ].map((feature, index) => (
               <motion.div
@@ -138,10 +134,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-2 sm:mb-4">
-              Our <span className="text-mint">Services</span>
+              {t('services.title')}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore our comprehensive range of security and automation solutions
+              {t('services.subtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
@@ -153,16 +149,17 @@ export default function Home() {
               className="bg-white rounded-lg shadow-md overflow-hidden"
             >
               <div className="p-4 sm:p-6 md:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4">Security Solutions</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4">
+                  {t('services.categories.security.title')}
+                </h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                  Comprehensive security systems for your home and business, including
-                  surveillance, access control, and intrusion detection.
+                  {t('services.categories.security.description')}
                 </p>
                 <Link
                   href="/services"
                   className="inline-flex items-center text-mint hover:text-mint/80 transition-colors text-sm sm:text-base"
                 >
-                  Learn More <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  {t('common.learnMore')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </div>
             </motion.div>
@@ -174,16 +171,17 @@ export default function Home() {
               className="bg-white rounded-lg shadow-md overflow-hidden"
             >
               <div className="p-4 sm:p-6 md:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4">Automation Systems</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4">
+                  {t('services.categories.automation.title')}
+                </h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                  Smart automation solutions for lighting, heating, and energy management,
-                  designed for efficiency and comfort.
+                  {t('services.categories.automation.description')}
                 </p>
                 <Link
                   href="/services"
                   className="inline-flex items-center text-mint hover:text-mint/80 transition-colors text-sm sm:text-base"
                 >
-                  Learn More <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  {t('common.learnMore')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </div>
             </motion.div>
@@ -193,7 +191,7 @@ export default function Home() {
               href="/services"
               className="inline-flex items-center bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors text-sm sm:text-base"
             >
-              View All Services
+              {t('common.viewAll')} {t('nav.services')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
@@ -213,10 +211,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">
-              Our <span className="text-mint">Products</span>
+              {t('products.title')}
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
-              Discover our comprehensive range of security and automation solutions
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              {t('products.subtitle')}
             </p>
           </div>
 
@@ -227,26 +225,26 @@ export default function Home() {
                   <div key={setIndex} className="flex">
                     {[
                       {
-                        title: 'Technical Security',
-                        description: 'Advanced security systems including intrusion protection, video surveillance, and access control.',
+                        title: t('products.categories.technical.title'),
+                        description: t('products.categories.technical.description'),
                         image: '/images/products/technical-security.jpg',
                         href: '/products/technical-security'
                       },
                       {
-                        title: 'Hotel Systems',
-                        description: 'Comprehensive hotel management and security solutions for hospitality industry.',
+                        title: t('products.categories.hotel.title'),
+                        description: t('products.categories.hotel.description'),
                         image: '/images/products/hotel-system.jpg',
                         href: '/products/hotel-systems'
                       },
                       {
-                        title: 'Structured Cabling networks & Communication',
-                        description: 'Professional communication infrastructure and networking solutions.',
+                        title: t('products.categories.cabling.title'),
+                        description: t('products.categories.cabling.description'),
                         image: '/images/products/structured-cabling-system.jpg',
                         href: '/products/structured-cabling'
                       },
                       {
-                        title: 'Smart Home',
-                        description: 'Smart automation solutions for lighting and heating systems.',
+                        title: t('products.categories.smart.title'),
+                        description: t('products.categories.smart.description'),
                         image: '/images/products/home-security.jpeg',
                         href: '/products/automation'
                       }
@@ -274,7 +272,7 @@ export default function Home() {
                                 {category.description}
                               </p>
                               <div className="flex items-center text-mint transform transition-transform duration-500 group-hover:translate-x-2">
-                                <span className="text-sm sm:text-base mr-2">Learn More</span>
+                                <span className="text-sm sm:text-base mr-2">{t('common.learnMore')}</span>
                                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                               </div>
                             </div>
@@ -295,7 +293,7 @@ export default function Home() {
               href="/products"
               className="inline-flex items-center bg-mint text-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors text-sm sm:text-base"
             >
-              View All Products
+              {t('common.viewAll')} {t('nav.products')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
@@ -311,10 +309,10 @@ export default function Home() {
           <div className="max-w-4xl mx-auto bg-black/50 rounded-2xl p-8 backdrop-blur-sm">
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                <span className="text-mint">Secure</span> Your Property?
+                {t('contact.title')}
               </h2>
               <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-                Contact us today for a free consultation and security assessment.
+                {t('contact.subtitle')}
               </p>
             </div>
             <ContactForm />

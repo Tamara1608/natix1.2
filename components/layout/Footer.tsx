@@ -1,7 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { Phone, Mail, MapPin, FacebookIcon, Instagram, Linkedin } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,7 +16,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold text-mint mb-6">NATIX</h3>
             <p className="mb-6 text-gray-400">
-              Professional security systems installation and consultation services for your peace of mind.
+              {t('footer.about')}
             </p>
             <div className="flex space-x-4">
               <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-mint transition-colors">
@@ -29,26 +33,26 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-white mb-6">{t('footer.quickLinks')}</h4>
             <ul className="space-y-4">
               <li>
                 <Link href="/products" className="text-gray-400 hover:text-mint transition-colors">
-                  Products
+                  {t('nav.products')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-mint transition-colors">
-                  Services
+                  {t('nav.services')}
                 </Link>
               </li>
               <li>
                 <Link href="/#contact" className="text-gray-400 hover:text-mint transition-colors">
-                  Contact Us
+                  {t('nav.contact')}
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="text-gray-400 hover:text-mint transition-colors">
-                  About <span className="text-mint">NATIX</span>
+                  {t('nav.about')} <span className="text-mint">NATIX</span>
                 </Link>
               </li>
             </ul>
@@ -56,26 +60,26 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Services</h4>
+            <h4 className="text-lg font-semibold text-white mb-6">{t('footer.services')}</h4>
             <ul className="space-y-4">
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-mint transition-colors">
-                  Installation
+                  {t('footer.installation')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-mint transition-colors">
-                  Consultation
+                  {t('footer.consultation')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-mint transition-colors">
-                  Maintenance
+                  {t('footer.maintenance')}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-mint transition-colors">
-                  24/7 Support
+                  {t('footer.support')}
                 </Link>
               </li>
             </ul>
@@ -83,7 +87,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Contact Us</h4>
+            <h4 className="text-lg font-semibold text-white mb-6">{t('footer.contactUs')}</h4>
             <ul className="space-y-4">
               <li className="flex items-center space-x-3 text-gray-400">
                 <Phone size={20} className="text-mint" />
@@ -102,7 +106,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-500">&copy; {currentYear} NATIX. All rights reserved.</p>
+          <p className="text-gray-500">&copy; {currentYear} NATIX. {t('footer.rights')}</p>
         </div>
       </div>
     </footer>
