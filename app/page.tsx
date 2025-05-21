@@ -44,7 +44,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 max-w-2xl mx-auto"
           >
             Professional security systems and solutions for homes and businesses.
             Experience peace of mind with our cutting-edge technology.
@@ -140,7 +140,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-2 sm:mb-4">
               Our <span className="text-mint">Services</span>
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Explore our comprehensive range of security and automation solutions
             </p>
           </div>
